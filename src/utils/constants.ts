@@ -4,6 +4,7 @@ import { css } from 'styled-components'
 import { injected, walletconnect, walletlink } from '../connectors'
 import { SupportedChainId } from './chains'
 import { ChainId, WalletInfo } from './interfaces'
+import { Connector } from '@web3-react/types'
 
 type AddressMap = { [chainId: number]: string }
 
@@ -57,8 +58,7 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
         color: '#E8831D',
     },
     WALLET_CONNECT: {
-        // @ts-ignore
-        connector: walletconnect,
+        connector: walletconnect[0],
         name: 'WalletConnect',
         iconName: 'walletConnectIcon.svg',
         description: 'Connect to Trust Wallet, Rainbow Wallet and more...',

@@ -5,6 +5,7 @@ import { TokenData } from '@opendollar/sdk/lib/contracts/addreses'
 import { TransactionResponse } from '@ethersproject/providers'
 import { Geb } from '@opendollar/sdk'
 import { BigNumber } from 'ethers'
+import { Connector } from '@web3-react/types'
 
 export declare enum ChainId {
     ARBITRUM_SEPOLIA = 421614,
@@ -132,7 +133,7 @@ export interface ITokenBalance {
 }
 
 export interface WalletInfo {
-    connector?: AbstractConnector
+    connector?: AbstractConnector | Connector
     name: string
     iconName: string
     description: string

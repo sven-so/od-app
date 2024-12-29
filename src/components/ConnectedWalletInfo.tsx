@@ -17,6 +17,7 @@ import { Info } from 'react-feather'
 import { Tooltip as ReactTooltip } from 'react-tooltip'
 import { useAddress } from '~/hooks/useAddress'
 import { GnosisSafe } from '@web3-react/gnosis-safe'
+import { Connector } from '@web3-react/types'
 
 const ConnectedWalletInfo = () => {
     const { t } = useTranslation()
@@ -36,9 +37,7 @@ const ConnectedWalletInfo = () => {
         const name = Object.keys(SUPPORTED_WALLETS)
             .filter(
                 (k) =>
-                    // @ts-ignore
-                    SUPPORTED_WALLETS[k].connector === connector &&
-                    // @ts-ignore
+                    SUPPORTED_WALLETS[k].connector as (Connector | undefined) === connector &&
                     !(connector instanceof MetaMask)
             )
             .map((k) => SUPPORTED_WALLETS[k].name)[0]
